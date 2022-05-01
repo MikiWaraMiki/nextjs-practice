@@ -1,8 +1,11 @@
-import { Flex, Heading, Stack, useDisclosure, Text } from '@chakra-ui/react'
+import { Flex, Heading, Stack, useDisclosure, Text, Box } from '@chakra-ui/react'
+import { useInjection } from './container'
 
 type GlobalHeaderProps = any
 export function GlobalHeader(props?: GlobalHeaderProps) {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isAuthenticated, name } = useInjection()
+
   const handleToggle = () => (isOpen ? onClose() : onOpen())
 
   return (
@@ -22,19 +25,23 @@ export function GlobalHeader(props?: GlobalHeaderProps) {
         </Heading>
       </Flex>
 
-      <Stack
-        direction={{ base: 'column', md: 'row' }}
-        display={{ base: isOpen ? 'block' : 'none', md: 'flex' }}
-        width={{ base: 'full', md: 'auto' }}
-        alignItems='center'
-        flexGrow={1}
-        mt={{ base: 4, md: 0 }}
-        color='gray.300'
-      >
-        <Text>Home</Text>
-        <Text>New Article</Text>
-        <Text>Settings</Text>
-      </Stack>
+      <Box>
+        <Stack
+          direction={{ base: 'column', md: 'row' }}
+          display={{ base: isOpen ? 'block' : 'none', md: 'flex' }}
+          width={{ base: 'full', md: 'auto' }}
+          alignItems='center'
+          flexGrow={1}
+          mt={{ base: 4, md: 0 }}
+          color='gray.300'
+        >
+          <Text>Home</Text>
+          <Text>New Article</Text>
+          <Text>Settings</Text>
+
+          {isAuthenticated ? <Text>{name}</Text> : undefined}
+        </Stack>
+      </Box>
     </Flex>
   )
 }
