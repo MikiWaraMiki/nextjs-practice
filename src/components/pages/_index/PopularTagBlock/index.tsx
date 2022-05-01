@@ -1,4 +1,4 @@
-import { Badge, Box, Heading, Text } from '@chakra-ui/react'
+import { Badge, Box, Heading, Tag, Text } from '@chakra-ui/react'
 import { useInjection } from './container'
 
 export type PopularTagBlockProps = any
@@ -11,9 +11,9 @@ export function PopularTagBlock() {
 
       <Box>
         {tags.map((tag) => (
-          <Badge key={tag.id} mr={2} paddingY={2} mt={2}>
+          <Tag key={tag.id} mr={2} paddingY={2} mt={2}>
             {tag.name}
-          </Badge>
+          </Tag>
         ))}
       </Box>
     </Box>
