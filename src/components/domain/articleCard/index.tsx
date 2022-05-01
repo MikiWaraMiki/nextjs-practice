@@ -1,4 +1,4 @@
-import { Avatar, Badge, Box, Flex, Text } from '@chakra-ui/react'
+import { Avatar, Badge, Box, Flex, Tag, Text } from '@chakra-ui/react'
 import { LikeButton } from '@/components/atoms/likeButton'
 
 export type ArticleCardPorps = {
@@ -9,11 +9,11 @@ export function ArticleCard(props?: ArticleCardPorps) {
   const tags = [
     {
       id: 1,
-      name: 'a',
+      name: 'tagA',
     },
     {
       id: 2,
-      name: 'b',
+      name: 'tagB',
     },
   ]
   return (
@@ -48,14 +48,14 @@ export function ArticleCard(props?: ArticleCardPorps) {
 
       <Flex align='center' justify='space-between' wrap='wrap'>
         <Box>
-          <Text fontSize={16} color='gray.500'>
+          <Text fontSize={12} color='gray.500'>
             read more...
           </Text>
         </Box>
 
         <Box maxWidth={'50%'}>
           {tags.map((tag) => (
-            <Badge
+            <Tag
               key={tag.id}
               padding={2}
               marginLeft={2}
@@ -63,9 +63,10 @@ export function ArticleCard(props?: ArticleCardPorps) {
               border='solid'
               borderColor='gray.500'
               color='gray.500'
+              fontSize={12}
             >
-              {tag.name}
-            </Badge>
+              <Text>{tag.name}</Text>
+            </Tag>
           ))}
         </Box>
       </Flex>
