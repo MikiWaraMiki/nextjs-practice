@@ -1,12 +1,12 @@
 import { StarIcon } from '@chakra-ui/icons'
-import { Button, Flex, Text } from '@chakra-ui/react'
+import { Button, ButtonProps, Flex, Text } from '@chakra-ui/react'
 import { useCallback, useState } from 'react'
 
 export type LikeButtonProps = {
   count?: number
   className?: string
   size?: 'xs' | 'sm' | 'md' | 'lg'
-}
+} & ButtonProps
 export function LikeButton(props: LikeButtonProps) {
   return (
     <Button
@@ -14,6 +14,7 @@ export function LikeButton(props: LikeButtonProps) {
       border='1px'
       borderColor={'teal.500'}
       textColor='teal.500'
+      size={props.size ?? 'md'}
       _hover={{ background: 'teal.500', textColor: 'white' }}
     >
       <Flex>

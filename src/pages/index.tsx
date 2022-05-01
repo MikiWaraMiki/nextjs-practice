@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
-import { LikeButton } from '@/components/atoms/likeButton'
+import { ArticleCard } from '@/components/domain/articleCard'
 import { PopularTagBlock } from '@/components/pages/_index/PopularTagBlock'
 
 const Home: NextPage = () => {
@@ -17,7 +17,7 @@ const Home: NextPage = () => {
 
       <PopularTagBlock />
 
-      <LikeButton />
+      <ArticleCard></ArticleCard>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
