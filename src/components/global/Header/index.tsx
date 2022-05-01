@@ -3,10 +3,8 @@ import { useInjection } from './container'
 
 type GlobalHeaderProps = any
 export function GlobalHeader(props?: GlobalHeaderProps) {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen } = useDisclosure()
   const { isAuthenticated, name } = useInjection()
-
-  const handleToggle = () => (isOpen ? onClose() : onOpen())
 
   return (
     <Flex
